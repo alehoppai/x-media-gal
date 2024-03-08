@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "X Medial Gallery",
+  "version": "1.0",
+
+  "description": "Provides gallery view of full open media content of user on X platform, with the ability to navigate with keys.",
+
+  "icons": {
+    "19": "icons/x-media-gal-19.png",
+    "38": "icons/x-media-gal-38.png",
+    "48": "icons/x-media-gal-48.png",
+    "96": "icons/x-media-gal-96.png"
+  },
+
+  "permissions": ["activeTab", "tabs", "storage"],
+
+  "content_scripts": [
+    {
+      "matches": ["https://twitter.com/*/media"],
+      "js": ["x-media-gal.js"]
+    }
+  ],
+
+  "action": {
+    "default_icon": {
+      "19": "icons/x-media-gal-19.png",
+      "38": "icons/x-media-gal-38.png"
+    },
+    "default_title": "X Media Gallery",
+    "default_popup": "popup/popup.html"
+  },
+
+  "background": {
+    "service_worker": "background.js"
+  }
+}
