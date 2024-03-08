@@ -1,25 +1,4 @@
-function scrollUnless(retries = 100, cb) {
-  let scrollHeight = document.body.scrollHeight;
-
-  let interval = setInterval(() => {
-    console.log("scroll attempts", retries);
-    if (retries < 0) {
-      console.log("scroll DONE");
-      clearInterval(interval);
-      interval = null;
-      cb();
-    }
-
-    window.scrollTo(0, document.body.scrollHeight);
-    const newScrollHeight = document.body.scrollHeight;
-
-    if (newScrollHeight > scrollHeight) {
-      scrollHeight = newScrollHeight;
-    } else {
-      retries -= 1;
-    }
-  }, 100);
-}
+import { scrollUnless } from "./scrollUnless";
 
 (() => {
   console.log("i'm running! X-Media-Gal");
